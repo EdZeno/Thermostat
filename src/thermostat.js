@@ -48,3 +48,7 @@ Thermostat.prototype.isMaximumTemperature = function() {
   }
   return this.temperature === this.MAX_LIMIT_PSM_ON;
 }
+
+Thermostat.prototype.resetTemperature = function() {
+  return this.temperature = 20;
+}

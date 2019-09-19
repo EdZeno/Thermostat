@@ -46,4 +46,20 @@ describe('Thermostat', function() {
       expect(thermostat.getCurrentTemperature()).toEqual(25);
     });
   });
+  describe('when power saving is off', function(){
+    it('has the maximum temperature of 32', function(){
+      thermostat.switchPowerSavingModeOff();
+      for(var i = 0; i < 13; i++) {
+        thermostat.up()
+      }
+      expect(thermostat.getCurrentTemperature()).toEqual(32);
+    });
+  });
+  it('can be reset to default temperatures', function(){
+    for(var i = 0; i < 6; i++) {
+      thermostat.up();
+    }
+    thermostat.resetTemperature();
+    expect(thermostat.getCurrentTemperature()).toEqual(20);
+  });
 });
